@@ -1,5 +1,4 @@
-#ifndef ELEVE_H
-#define ELEVE_H
+
 #include<string>
 #include<iostream>
 using namespace std;
@@ -7,17 +6,16 @@ using namespace std;
 class etudient {
 private:
     int CNE;
-    std::string nom;
-    std::string prenom;
+    string nom;
+    string prenom;
 
 public:
-    etudient(int id, const std::string& nom, const std::string& prenom);
+    etudient(int id, const string& nom, const string& prenom);
 
     int get_CNE() const;
 
-    std::string get_nom() const;
+    string get_nom() const;
 
-    std::string get_prenom() const;
+    string get_prenom() const;
 };
 
-#endif // ELEVE_H
