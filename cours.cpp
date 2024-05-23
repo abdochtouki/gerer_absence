@@ -1,11 +1,11 @@
 
-#include "etudient.h"
+#include"cours.h"
 #include<iostream>
 #include<string>
 #include<vector>
-#include"cours.h"
 using namespace std;
-cours::cours(int c, const string& t) : code(c), titre(t) {}
+ 
+cours::cours(int c,  string& t) : code(c), titre(t) {}
 
     void cours::ajouterEtudiant(const etudient& et) {
         etudients.push_back(et);
