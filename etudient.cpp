@@ -1,18 +1,20 @@
+#ifndef ETUDIENT_H
+#define ETUDIENT_H
 
-#include "etudient.h"
-#include<iostream>
-#include<string>
+#include <string>
 using namespace std;
- etudient::etudient(int id, const string& nom, const string& prenom) : CNE(id), nom(nom), prenom(prenom) {}
 
-    int etudient::get_CNE() const {
-        return CNE;
-    }
+class etudient {
+private:
+    int CNE;
+    string nom;
+    string prenom;
 
-    string etudient::get_nom() const {
-        return nom;
-    }
+public:
+    etudient(int id, const string& nom, const string& prenom);
+    int get_CNE() const;
+    string get_nom() const;
+    string get_prenom() const;
+};
 
-    string etudient::get_prenom() const {
-        return prenom;
-    }
+#endif
