@@ -10,6 +10,7 @@ using namespace std;
           void GestionnaireAbsences::afficher(){
             for(int i=0;i<absences.size();i++){
                  cout<<"code cours est :"<<absences[i].code_cours<<" "<<" code etudient"<<absences[i].CNE_ET;
+
             }
           }
 
@@ -28,10 +29,10 @@ using namespace std;
         vector<int> etudiantsAbsents = obtenirAbsences(code_cours);
         vector<etudient> etudiants = cours.getEtudiants();
         cout << "Absences pour le cours " << cours.getTitre() << " :" << endl;
-        for (int i=0;i<etudiantsAbsents.size();i++) {
-            for (int j=0;i<etudiants.size();i++) {
-                if (etudiants[j].get_CNE() == etudiantsAbsents[i]) {
-                    cout << "CNE : " << etudiantsAbsents[i] << ", Prénom : " << etudiants[j].get_prenom() << ", Nom : " << etudiants[j].get_nom() << endl;
+        for (int CNE : etudiantsAbsents) {
+            for (const etudient& etudiant : etudiants) {
+                if (etudiant.get_CNE() == CNE) {
+                    cout << "CNE : " << CNE << ", Prénom : " << etudiant.get_prenom() << ", Nom : " << etudiant.get_nom() << endl;
                 }
             }
         }
