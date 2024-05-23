@@ -17,11 +17,11 @@ void afficherMenu() {
          << "Choisissez une option : ";
 }
 
-void affichage(vector<etudient> listeEtudiants) {
+void affichage(vector<etudient> listeEtudients) {
             cout<<"*******************************************************************************************\n";
             cout<<"la liste des etudient :\n";
-    for (int i = 0; i < listeEtudiants.size(); i++) {
-        cout << "Nom: " << listeEtudiants[i].get_nom() <<" " << "Prenom: " << listeEtudiants[i].get_prenom() <<" "<< "CNE: " << listeEtudiants[i].get_CNE() << endl;
+    for (int i = 0; i < listeEtudients.size(); i++) {
+        cout << "Nom: " << listeEtudients[i].get_nom() <<" " << "Prenom: " << listeEtudients[i].get_prenom() <<" "<< "CNE: " << listeEtudients[i].get_CNE() << endl;
     }
             cout<<"*******************************************************************************************\n";
 
@@ -29,7 +29,7 @@ void affichage(vector<etudient> listeEtudiants) {
 
 void affichage1(vector<cours> listeCours) {
             cout<<"*******************************************************************************************\n";
-           cout<<"la liste des cours :";
+           cout<<"la liste des cours :\n";
     for (int i = 0; i < listeCours.size(); i++) {
         cout << "Code: " << listeCours[i].getCode() <<" "<< "Titre: " << listeCours[i].getTitre() << endl;
     }
@@ -50,7 +50,7 @@ bool verifierMotDePasse() {
 int main() {
     bool continuer = true;
 
-    vector<etudient> listeEtudiants;
+    vector<etudient> listeEtudients;
     vector<cours> listeCours;
     GestionnaireAbsences gestionnaireAbsences;
 
@@ -73,13 +73,13 @@ int main() {
                         cout << "Entrez le prenom de l'etudiant : ";
                         cin >> prenom;
 
-                        auto it = find_if(listeEtudiants.begin(), listeEtudiants.end(), [CNE](const etudient& et) {
+                        auto it = find_if(listeEtudients.begin(), listeEtudients.end(), [CNE](const etudient& et) {
                             return et.get_CNE() == CNE;
                         });
 
-                        if (it == listeEtudiants.end()) {
+                        if (it == listeEtudients.end()) {
                             etudient e(CNE, nom, prenom);
-                            listeEtudiants.push_back(e);
+                            listeEtudients.push_back(e);
                         } else {
                             cout << "Etudiant avec ce CNE existe deja." << endl;
                         }
@@ -118,7 +118,7 @@ int main() {
                         break;
                     }
                     case 5:
-                        affichage(listeEtudiants);
+                        affichage(listeEtudients);
                         break;
                     case 6:
                         affichage1(listeCours);
